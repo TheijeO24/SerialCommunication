@@ -54,7 +54,70 @@ namespace SerialCommunication
 
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            // abc def ghi jkl
+            if (serialPortArduino.IsOpen)
+            {
+                // Verbinding verbreken
+                serialPortArduino.Close();
+                buttonConnect.Text = "Connect";
+                radioButtonVerbonden.Checked = false;
+                labelStatus.Text = "Verbinding verbroken";
+            }
+            else
+            {
+                // Verbinding maken
+                try
+                {
+                    serialPortArduino.PortName = comboBoxPoort.SelectedItem.ToString();
+                    serialPortArduino.BaudRate = int.Parse(comboBoxBaudrate.SelectedItem.ToString());
+                    serialPortArduino.DataBits = (int)numericUpDownDatabits.Value;
+                    
+                    // Pariteit instellen
+                    if (radioButtonParityEven.Checked)
+                        serialPortArduino.Parity = Parity.Even;
+                    else if (radioButtonParityOdd.Checked)
+                        serialPortArduino.Parity = Parity.Odd;
+                    else if (radioButtonParityMark.Checked)
+                        serialPortArduino.Parity = Parity.Mark;
+                    else if (radioButtonParitySpace.Checked)
+                        serialPortArduino.Parity = Parity.Space;
+                    else
+                        serialPortArduino.Parity = Parity.None;
+                    
+                    // Stop bits instellen
+                    if (radioButtonStopbitsOne.Checked)
+                        serialPortArduino.StopBits = StopBits.One;
+                    else if (radioButtonStopbitsOnePointFive.Checked)
+                        serialPortArduino.StopBits = StopBits.OnePointFive;
+                    else if (radioButtonStopbitsTwo.Checked)
+                        serialPortArduino.StopBits = StopBits.Two;
+                    else
+                        serialPortArduino.StopBits = StopBits.None;
+                    
+                    // Handshake instellen
+                    if (radioButtonHandshakeRTS.Checked)
+                        serialPortArduino.Handshake = Handshake.RequestToSend;
+                    else if (radioButtonHandshakeXonXoff.Checked)
+                        serialPortArduino.Handshake = Handshake.XOnXOff;
+                    else if (radioButtonHandshakeRTSXonXoff.Checked)
+                        serialPortArduino.Handshake = Handshake.RequestToSendXOnXOff;
+                    else
+                        serialPortArduino.Handshake = Handshake.None;
+                    
+                    // RTS en DTR instellen
+                    serialPortArduino.RtsEnable = checkBoxRtsEnable.Checked;
+                    serialPortArduino.DtrEnable = checkBoxDtrEnable.Checked;
+                    
+                    serialPortArduino.Open();
+                    buttonConnect.Text = "Disconnect";
+                    radioButtonVerbonden.Checked = true;
+                    labelStatus.Text = "Verbonden via " + serialPortArduino.PortName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fout bij het openen van de poort: " + ex.Message, "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    labelStatus.Text = "Fout bij verbinding";
+                }
+            }
         }
     }
 }
