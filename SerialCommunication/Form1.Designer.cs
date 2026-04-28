@@ -873,7 +873,7 @@
             this.Controls.Add(this.comboBoxPoort);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
-            this.Text = "BZL seriële communicatie van Theije OosterlinckV3";
+            this.Text = "BZL seriële communicatie van Theije Oosterlinck";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageInstellingen.ResumeLayout(false);
