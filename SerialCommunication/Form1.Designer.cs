@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.radioButtonVerbonden = new System.Windows.Forms.RadioButton();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.labelPoort = new System.Windows.Forms.Label();
@@ -88,7 +89,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.labelStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.serialPortArduino = new System.IO.Ports.SerialPort();
+            this.serialPortArduino = new System.IO.Ports.SerialPort(this.components);
             this.tabControl.SuspendLayout();
             this.tabPageInstellingen.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -116,7 +117,7 @@
             this.radioButtonVerbonden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonVerbonden.AutoCheck = false;
             this.radioButtonVerbonden.AutoSize = true;
-            this.radioButtonVerbonden.Location = new System.Drawing.Point(1329, 26);
+            this.radioButtonVerbonden.Location = new System.Drawing.Point(2410, 46);
             this.radioButtonVerbonden.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonVerbonden.Name = "radioButtonVerbonden";
             this.radioButtonVerbonden.Size = new System.Drawing.Size(130, 29);
@@ -172,7 +173,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1437, 770);
+            this.tabControl.Size = new System.Drawing.Size(2599, 1126);
             this.tabControl.TabIndex = 9;
             // 
             // tabPageInstellingen
@@ -193,7 +194,7 @@
             this.tabPageInstellingen.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageInstellingen.Name = "tabPageInstellingen";
             this.tabPageInstellingen.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageInstellingen.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageInstellingen.Size = new System.Drawing.Size(2591, 1089);
             this.tabPageInstellingen.TabIndex = 2;
             this.tabPageInstellingen.Text = "Instellingen";
             this.tabPageInstellingen.UseVisualStyleBackColor = true;
@@ -532,14 +533,13 @@
             this.tabPageOefening1.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageOefening1.Name = "tabPageOefening1";
             this.tabPageOefening1.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageOefening1.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageOefening1.Size = new System.Drawing.Size(2190, 1089);
             this.tabPageOefening1.TabIndex = 0;
             this.tabPageOefening1.Text = "Oefening 1";
             this.tabPageOefening1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SerialCommunication.Properties.Resources.digital_out;
             this.pictureBox1.Location = new System.Drawing.Point(312, 32);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
@@ -558,6 +558,7 @@
             this.checkBoxDigital4.TabIndex = 2;
             this.checkBoxDigital4.Text = "Digital 4";
             this.checkBoxDigital4.UseVisualStyleBackColor = true;
+            this.checkBoxDigital4.CheckedChanged += new System.EventHandler(this.checkBoxDigital4_CheckedChanged);
             // 
             // checkBoxDigital3
             // 
@@ -569,6 +570,7 @@
             this.checkBoxDigital3.TabIndex = 1;
             this.checkBoxDigital3.Text = "Digital 3";
             this.checkBoxDigital3.UseVisualStyleBackColor = true;
+            this.checkBoxDigital3.CheckedChanged += new System.EventHandler(this.checkBoxDigital3_CheckedChanged);
             // 
             // checkBoxDigital2
             // 
@@ -580,6 +582,7 @@
             this.checkBoxDigital2.TabIndex = 0;
             this.checkBoxDigital2.Text = "Digital 2";
             this.checkBoxDigital2.UseVisualStyleBackColor = true;
+            this.checkBoxDigital2.CheckedChanged += new System.EventHandler(this.checkBoxDigital2_CheckedChanged);
             // 
             // tabPageOefening2
             // 
@@ -594,7 +597,7 @@
             this.tabPageOefening2.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageOefening2.Name = "tabPageOefening2";
             this.tabPageOefening2.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageOefening2.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageOefening2.Size = new System.Drawing.Size(2190, 1089);
             this.tabPageOefening2.TabIndex = 1;
             this.tabPageOefening2.Text = "Oefening 2";
             this.tabPageOefening2.UseVisualStyleBackColor = true;
@@ -664,7 +667,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::SerialCommunication.Properties.Resources.analog_out;
             this.pictureBox2.Location = new System.Drawing.Point(50, 30);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.Name = "pictureBox2";
@@ -683,7 +685,7 @@
             this.tabPageOefening3.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageOefening3.Name = "tabPageOefening3";
             this.tabPageOefening3.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageOefening3.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageOefening3.Size = new System.Drawing.Size(2190, 1089);
             this.tabPageOefening3.TabIndex = 3;
             this.tabPageOefening3.Text = "Oefening 3";
             this.tabPageOefening3.UseVisualStyleBackColor = true;
@@ -729,7 +731,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::SerialCommunication.Properties.Resources.digital_in;
             this.pictureBox3.Location = new System.Drawing.Point(312, 32);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox3.Name = "pictureBox3";
@@ -746,7 +747,7 @@
             this.tabPageOefening4.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageOefening4.Name = "tabPageOefening4";
             this.tabPageOefening4.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageOefening4.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageOefening4.Size = new System.Drawing.Size(2190, 1089);
             this.tabPageOefening4.TabIndex = 4;
             this.tabPageOefening4.Text = "Oefening 4";
             this.tabPageOefening4.UseVisualStyleBackColor = true;
@@ -764,7 +765,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::SerialCommunication.Properties.Resources.analog_in;
             this.pictureBox4.Location = new System.Drawing.Point(45, 33);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox4.Name = "pictureBox4";
@@ -784,7 +784,7 @@
             this.tabPageOefening5.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageOefening5.Name = "tabPageOefening5";
             this.tabPageOefening5.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageOefening5.Size = new System.Drawing.Size(1429, 733);
+            this.tabPageOefening5.Size = new System.Drawing.Size(2190, 1089);
             this.tabPageOefening5.TabIndex = 5;
             this.tabPageOefening5.Text = "Oefening 5";
             this.tabPageOefening5.UseVisualStyleBackColor = true;
@@ -835,7 +835,6 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::SerialCommunication.Properties.Resources.thermostat;
             this.pictureBox5.Location = new System.Drawing.Point(44, 33);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox5.Name = "pictureBox5";
@@ -849,10 +848,10 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelStatus});
-            this.statusStrip.Location = new System.Drawing.Point(0, 892);
+            this.statusStrip.Location = new System.Drawing.Point(0, 914);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 26, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1481, 22);
+            this.statusStrip.Size = new System.Drawing.Size(2041, 22);
             this.statusStrip.TabIndex = 10;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -870,7 +869,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 914);
+            this.ClientSize = new System.Drawing.Size(2041, 936);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.radioButtonVerbonden);
