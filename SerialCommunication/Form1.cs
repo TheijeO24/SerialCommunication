@@ -14,7 +14,7 @@ namespace SerialCommunication
 {
     public partial class Form1 : Form
     {
-        private object radioButtenVerbonden;
+
 
         public Form1()
         {
@@ -159,7 +159,7 @@ namespace SerialCommunication
                     antwoord = antwoord.TrimEnd();
                     if (antwoord == "pong")
                     {
-                        radioButtenVerbonden. = true;
+                        radioButtonVerbonden.Checked = true;
                         buttonConnect.Text = "disconnect";
                         labelStatus.Text = "status: Connected";
                     }
